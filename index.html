@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lab Maya Lingkaran dan Busur Lingkaran</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f7fb;--card:#fff;--tx:#1b2430;--mu:#5b6778;--pr:#2563eb;--ac:#f59e0b;--ok:#16a34a;--no:#dc2626;--bd:#d9e1ec}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f172a;--card:#1e293b;--tx:#e8eef7;--mu:#9aa8bc;--pr:#60a5fa;--ac:#fbbf24;--ok:#4ade80;--no:#f87171;--bd:#334155}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+header{background:var(--pr);color:#fff;padding:12px 16px;text-align:center}
+header h1{font-size:1.05rem;margin:0}header small{opacity:.9}
+nav{display:flex;gap:6px;padding:10px;max-width:900px;margin:auto}
+nav button{flex:1;padding:10px 4px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;font-size:.95rem;cursor:pointer}
+nav button.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+main{max-width:900px;margin:auto;padding:0 10px 30px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+h2{font-size:1.15rem;margin:.2em 0 .5em;color:var(--pr)}h3{font-size:1rem;margin:.8em 0 .3em}
+.f{background:var(--bg);border-left:4px solid var(--ac);padding:8px 12px;border-radius:8px;margin:8px 0;overflow-x:auto}
+.sec{display:none}.sec.on{display:block}
+svg{width:100%;max-width:420px;display:block;margin:auto;background:var(--bg);border-radius:12px}
+label{display:block;font-size:.92rem;margin-top:8px}input[type=range]{width:100%}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px}
+.g div{background:var(--bg);border-radius:10px;padding:8px;text-align:center;font-size:.9rem}.g b{display:block;color:var(--pr);font-size:1.05rem}
+.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1 1 280px}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;font-size:.95rem;cursor:pointer}
+.opt.ok{background:var(--ok);color:#fff}.opt.no{background:var(--no);color:#fff}
+.btn{padding:10px 18px;background:var(--pr);color:#fff;border:0;border-radius:10px;font-size:1rem;cursor:pointer}
+#sp{position:fixed;inset:0;z-index:99;background:linear-gradient(160deg,#1e3a8a,#2563eb 60%,#38bdf8);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+#sp h1{font-size:1.7rem;margin:.3em 0}#sp p{margin:.2em 0}.dev{margin-top:22px;background:rgba(255,255,255,.18);padding:10px 22px;border-radius:12px}
+#sp .btn{background:#f59e0b;color:#1b2430;margin-top:26px;font-weight:700}
+</style></head><body>
+<div id="sp">
+<svg viewBox="0 0 100 100" style="width:110px;background:none"><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="3"/><path d="M50 50L90 50A40 40 0 0 0 64 12.4Z" fill="#f59e0b"/><circle cx="50" cy="50" r="3" fill="#fff"/></svg>
+<p>LABORATORIUM MAYA MATEMATIKA</p><h1>Lingkaran dan Busur Lingkaran</h1><p>Matematika Kelas XI · Fase F</p>
+<div class="dev"><small>Dikembangkan oleh</small><br><b style="font-size:1.2rem">Fitri Andriyani</b></div>
+<button class="btn" onclick="document.getElementById('sp').style.display='none'">Mulai Belajar ▶</button></div>
+
+<header><h1>Lab Maya: Lingkaran dan Busur Lingkaran</h1><small>Matematika Kelas XI · Fase F</small></header>
+<nav><button class="on" data-t="t">📘 Teori</button><button data-t="s">🔬 Simulasi</button><button data-t="q">📝 Latihan</button></nav>
+<main>
+<section id="t" class="sec on">
+<div class="card"><h2>Tujuan Pembelajaran</h2>Peserta didik mampu menentukan unsur-unsur lingkaran, panjang busur, luas juring, luas tembereng, serta hubungan sudut pusat dan sudut keliling.</div>
+<div class="card"><h2>1. Unsur-unsur Lingkaran</h2>
+<p><b>Pusat (O)</b>: titik tetap yang berjarak sama ke semua titik pada lingkaran. <b>Jari-jari (r)</b>: jarak pusat ke lingkaran. <b>Diameter (d = 2r)</b>: tali busur terpanjang melalui pusat. <b>Tali busur</b>: ruas garis yang menghubungkan dua titik pada lingkaran. <b>Busur</b>: bagian lingkaran antara dua titik. <b>Juring</b>: daerah yang dibatasi dua jari-jari dan sebuah busur. <b>Tembereng</b>: daerah antara tali busur dan busur. <b>Apotema</b>: jarak tegak lurus pusat ke tali busur.</p></div>
+<div class="card"><h2>2. Keliling dan Luas Lingkaran</h2>
+<div class="f">K = 2πr = πd &nbsp;&nbsp;|&nbsp;&nbsp; L = πr²</div>π ≈ 22/7 (jika r kelipatan 7) atau 3,14.</div>
+<div class="card"><h2>3. Busur dan Juring</h2>
+<p>Perbandingan sudut pusat θ terhadap satu putaran penuh (360°) sama dengan perbandingan panjang busur terhadap keliling dan luas juring terhadap luas lingkaran.</p>
+<div class="f">Panjang busur = (θ/360°) × 2πr<br>Luas juring = (θ/360°) × πr²</div>
+<h3>Satuan Radian</h3><p>1 putaran = 2π rad = 360°, sehingga 180° = π rad dan 1 rad ≈ 57,3°.</p>
+<div class="f">Panjang busur s = r · θ (θ dalam radian)<br>Luas juring = ½ r² θ</div></div>
+<div class="card"><h2>4. Tali Busur, Apotema, dan Tembereng</h2>
+<div class="f">Tali busur = 2r sin(θ/2)<br>Apotema = r cos(θ/2)<br>Luas tembereng = Luas juring − Luas segitiga = ½ r² (θ − sin θ)</div></div>
+<div class="card"><h2>5. Sudut Pusat dan Sudut Keliling</h2>
+<p><b>Sudut pusat</b> berpuncak di pusat lingkaran; <b>sudut keliling</b> berpuncak pada lingkaran. Jika keduanya menghadap busur yang sama:</p>
+<div class="f">Sudut keliling = ½ × sudut pusat</div>
+<ul><li>Sudut-sudut keliling yang menghadap busur yang sama besarnya sama.</li><li>Sudut keliling yang menghadap diameter = 90°.</li></ul></div>
+<div class="card"><h2>Contoh Soal</h2><p>Lingkaran berjari-jari 7 cm dengan sudut pusat 120°. Panjang busur = 120/360 × 2 × 22/7 × 7 = 1/3 × 44 = <b>14,67 cm</b>. Luas juring = 1/3 × 22/7 × 49 = <b>51,33 cm²</b>.</p></div>
+</section>
+
+<section id="s" class="sec">
+<div class="card"><h2>Simulasi 1: Busur, Juring, dan Tembereng</h2>
+<p>Geser slider dan amati perubahan nilai.</p>
+<div class="row"><svg id="v1" viewBox="0 0 300 300"></svg>
+<div><label>Jari-jari r: <b id="rv"></b> cm</label><input type="range" id="r" min="2" max="12" step="1" value="8">
+<label>Sudut pusat θ: <b id="tv"></b>° (<span id="rad"></span> rad)</label><input type="range" id="th" min="1" max="360" value="90">
+<div class="g" id="o1"></div></div></div></div>
+<div class="card"><h2>Simulasi 2: Sudut Pusat dan Sudut Keliling</h2>
+<p>Ubah sudut pusat AOB dan geser titik C pada busur besar. Perhatikan sudut ACB.</p>
+<div class="row"><svg id="v2" viewBox="0 0 300 300"></svg>
+<div><label>Sudut pusat AOB: <b id="av"></b>°</label><input type="range" id="a" min="20" max="180" value="100">
+<label>Posisi titik C</label><input type="range" id="c" min="5" max="95" value="40">
+<div class="g" id="o2"></div>
+<p id="n2" style="font-size:.9rem;color:var(--mu)"></p></div></div></div>
+</section>
+
+<section id="q" class="sec"><div class="card" id="qb"></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id),PI=Math.PI,f=(x,d=2)=>x.toFixed(d).replace('.',',');
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));
+document.querySelectorAll('.sec').forEach(s=>s.classList.toggle('on',s.id===b.dataset.t));scrollTo(0,0)});
+const P=(cx,cy,R,d)=>[cx+R*Math.cos(d*PI/180),cy-R*Math.sin(d*PI/180)];
+function s1(){const r=+$('r').value,t=+$('th').value,R=r*11,c=150,e=Math.min(t,359.99),
+[x1,y1]=P(c,c,R,0),[x2,y2]=P(c,c,R,e),tr=t*PI/180,lg=t>180?1:0;
+$('rv').textContent=r;$('tv').textContent=t;$('rad').textContent=f(tr);
+$('v1').innerHTML=`<circle cx="${c}" cy="${c}" r="${R}" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<path d="M${c} ${c}L${x1} ${y1}A${R} ${R} 0 ${lg} 0 ${x2} ${y2}Z" fill="#2563eb" fill-opacity=".3"/>
+<path d="M${x1} ${y1}A${R} ${R} 0 ${lg} 0 ${x2} ${y2}" fill="none" stroke="#f59e0b" stroke-width="5"/>
+<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#dc2626" stroke-width="2"/>
+<circle cx="${c}" cy="${c}" r="3" fill="#1e293b"/><text x="${c-14}" y="${c+16}" font-size="13" fill="#64748b">O</text>
+<text x="${x1+4}" y="${y1-4}" font-size="13" fill="#64748b">A</text><text x="${x2+4}" y="${y2-4}" font-size="13" fill="#64748b">B</text>`;
+$('o1').innerHTML=[['Keliling',2*PI*r,'cm'],['Luas lingkaran',PI*r*r,'cm²'],['Panjang busur',r*tr,'cm'],['Luas juring',.5*r*r*tr,'cm²'],['Tali busur',2*r*Math.sin(tr/2),'cm'],['Apotema',r*Math.cos(tr/2),'cm'],['Luas tembereng',.5*r*r*(tr-Math.sin(tr)),'cm²'],['Busur/keliling',t/360*100,'%']].map(a=>`<div>${a[0]}<b>${f(a[1])} ${a[2]}</b></div>`).join('')}
+function s2(){const a=+$('a').value,k=$('c').value/100,R=100,c=150,
+A=P(c,c,R,90-a/2),B=P(c,c,R,90+a/2),cd=90+a/2+k*(360-a),C=P(c,c,R,cd),
+v=(p,q)=>[p[0]-q[0],p[1]-q[1]],u=v(A,C),w=v(B,C),
+ang=Math.acos((u[0]*w[0]+u[1]*w[1])/(Math.hypot(...u)*Math.hypot(...w)))*180/PI;
+$('av').textContent=a;const L=(p,q,s)=>`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="${s}" stroke-width="2.5"/>`;
+$('v2').innerHTML=`<circle cx="${c}" cy="${c}" r="${R}" fill="none" stroke="#94a3b8" stroke-width="2"/>
+${L([c,c],A,'#f59e0b')}${L([c,c],B,'#f59e0b')}${L(C,A,'#2563eb')}${L(C,B,'#2563eb')}
+<circle cx="${c}" cy="${c}" r="3" fill="#1e293b"/>
+${[['O',[c-14,c+16]],['A',[A[0]-16,A[1]-4]],['B',[B[0]+6,B[1]-4]],['C',[C[0]+6,C[1]+14]]].map(x=>`<text x="${x[1][0]}" y="${x[1][1]}" font-size="14" fill="#64748b">${x[0]}</text>`).join('')}`;
+$('o2').innerHTML=`<div>Sudut pusat AOB<b>${f(a,1)}°</b></div><div>Sudut keliling ACB<b>${f(ang,1)}°</b></div><div>½ × sudut pusat<b>${f(a/2,1)}°</b></div>`;
+$('n2').textContent='Kesimpulan: sudut keliling selalu sama dengan setengah sudut pusat, di mana pun C berada pada busur besar. Pada θ = 180° (AB diameter), sudut ACB = 90°.'}
+['r','th'].forEach(i=>$(i).oninput=s1);['a','c'].forEach(i=>$(i).oninput=s2);s1();s2();
+
+const Q=[
+["Pada lingkaran berpusat di O, sudut pusat AOB = 120°. Besar sudut keliling ACB yang menghadap busur AB adalah ...",["30°","60°","120°","240°"],1,"Sudut keliling = ½ × sudut pusat = ½ × 120° = 60°."],
+["Sudut keliling PQR = 35° menghadap busur PR. Besar sudut pusat POR adalah ...",["17,5°","35°","70°","140°"],2,"Sudut pusat = 2 × sudut keliling = 2 × 35° = 70°."],
+["Sudut keliling yang menghadap diameter lingkaran besarnya ...",["45°","90°","180°","360°"],1,"Diameter menghadap sudut pusat 180°, sehingga sudut keliling = ½ × 180° = 90°."],
+["Sudut ACB = (3x + 10)° dan sudut ADB = (5x − 20)° menghadap busur AB yang sama. Nilai x adalah ...",["10","15","20","25"],1,"Sudut keliling yang menghadap busur sama besarnya sama: 3x + 10 = 5x − 20, sehingga 2x = 30 dan x = 15."],
+["Segitiga ABC terletak dalam lingkaran dengan AB sebagai diameter. Jika sudut BAC = 40°, besar sudut ABC adalah ...",["40°","50°","60°","90°"],1,"Sudut ACB menghadap diameter = 90°. Maka sudut ABC = 180° − 90° − 40° = 50°."],
+["Sudut pusat AOB = (6x − 10)° dan sudut keliling ACB = (2x + 10)° menghadap busur yang sama. Besar sudut pusat AOB adalah ...",["40°","60°","80°","100°"],2,"Sudut pusat = 2 × sudut keliling: 6x − 10 = 4x + 20, sehingga x = 15. Sudut pusat = 6(15) − 10 = 80°."],
+["Pada lingkaran berjari-jari 12 cm, sudut keliling ACB = 30° menghadap busur AB. Panjang busur AB (π = 3,14) adalah ...",["6,28 cm","12,56 cm","25,12 cm","37,68 cm"],1,"Sudut pusat = 2 × 30° = 60°. Busur = 60/360 × 2 × 3,14 × 12 = 1/6 × 75,36 = 12,56 cm."],
+["Sudut pusat AOB = 140°. Besar sudut OAB (segitiga OAB sama kaki, OA = OB) adalah ...",["20°","30°","40°","70°"],0,"Sudut OAB = sudut OBA = (180° − 140°)/2 = 20°."],
+["Sudut keliling = 72° menghadap busur AB. Sudut pusat yang menghadap busur AB dalam radian adalah ...",["2π/5 rad","4π/5 rad","3π/5 rad","π rad"],1,"Sudut pusat = 2 × 72° = 144°. Dalam radian: 144/180 × π = 4π/5 rad."],
+["Panjang busur AB sama dengan 1/6 keliling lingkaran. Besar sudut keliling yang menghadap busur AB adalah ...",["15°","30°","60°","120°"],1,"Sudut pusat = 1/6 × 360° = 60°. Sudut keliling = ½ × 60° = 30°."]];
+const Q0=[
+["Sebuah lingkaran berjari-jari 14 cm memiliki sudut pusat 90°. Panjang busurnya (π = 22/7) adalah ...",["11 cm","22 cm","44 cm","88 cm"],1,"Busur = 90/360 × 2 × 22/7 × 14 = 1/4 × 88 = 22 cm."],
+["Luas juring dengan r = 21 cm dan sudut pusat 60° (π = 22/7) adalah ...",["154 cm²","231 cm²","462 cm²","693 cm²"],1,"Luas = 60/360 × 22/7 × 21² = 1/6 × 1.386 = 231 cm²."],
+["Panjang busur 44 cm pada lingkaran berjari-jari 28 cm (π = 22/7). Besar sudut pusatnya adalah ...",["45°","60°","90°","120°"],2,"Keliling = 176 cm. θ = 44/176 × 360° = 90°."],
+["Sudut pusat suatu lingkaran 100°. Sudut keliling yang menghadap busur yang sama adalah ...",["25°","50°","100°","200°"],1,"Sudut keliling = ½ × 100° = 50°."],
+["Sudut keliling 35° menghadap busur AB. Besar sudut pusat yang menghadap busur AB adalah ...",["17,5°","35°","70°","140°"],2,"Sudut pusat = 2 × 35° = 70°."],
+["Sudut pusat π/3 radian sama dengan ...",["30°","60°","90°","120°"],1,"π rad = 180°, maka π/3 = 180°/3 = 60°."],
+["Lingkaran berjari-jari 6 cm dengan sudut pusat π/3 rad. Panjang busurnya adalah ...",["π cm","2π cm","3π cm","6π cm"],1,"s = r·θ = 6 × π/3 = 2π cm."],
+["Luas juring 308 cm² pada lingkaran berjari-jari 14 cm (π = 22/7). Sudut pusat juring tersebut adalah ...",["90°","120°","180°","270°"],2,"Luas lingkaran = 616 cm². θ = 308/616 × 360° = 180°."],
+["Sudut keliling yang menghadap diameter lingkaran besarnya ...",["45°","90°","180°","360°"],1,"Diameter menghadap sudut pusat 180°, sehingga sudut keliling = 90°."],
+["Lingkaran berjari-jari 10 cm, sudut pusat 90°. Luas tembereng (π = 3,14) adalah ...",["21,5 cm²","28,5 cm²","50 cm²","78,5 cm²"],1,"Juring = ¼ × 3,14 × 100 = 78,5. Segitiga = ½ × 10 × 10 = 50. Tembereng = 78,5 − 50 = 28,5 cm²."]];
+let i=0,sc=0,ans=false;
+function show(){const b=$('qb');
+if(i>=Q.length){const n=sc*10;b.innerHTML=`<h2>Hasil Latihan</h2><p style="font-size:1.4rem">Skor: <b>${sc}/10</b> (nilai ${n})</p><p>${n>=80?'Hebat! Pemahamanmu sangat baik. 🎉':n>=60?'Cukup baik. Ulangi simulasi untuk memperkuat konsep.':'Pelajari kembali teori dan simulasi, lalu coba lagi.'}</p><button class="btn" onclick="i=0;sc=0;show()">Ulangi</button>`;return}
+const q=Q[i];ans=false;
+b.innerHTML=`<h2>Soal ${i+1} dari 10</h2><div style="height:6px;background:var(--bd);border-radius:6px;margin-bottom:10px"><div style="height:6px;width:${i*10}%;background:var(--pr);border-radius:6px"></div></div><p>${q[0]}</p>${q[1].map((o,j)=>`<button class="opt" onclick="pick(${j},this)">${String.fromCharCode(65+j)}. ${o}</button>`).join('')}<div id="ex"></div>`}
+function pick(j,el){if(ans)return;ans=true;const q=Q[i],bs=document.querySelectorAll('.opt');
+bs[q[2]].classList.add('ok');if(j===q[2])sc++;else el.classList.add('no');
+$('ex').innerHTML=`<p><b>${j===q[2]?'Benar! ✅':'Kurang tepat ❌'}</b> ${q[3]}</p><button class="btn" onclick="i++;show()">${i<9?'Soal berikutnya ▶':'Lihat hasil'}</button>`}
+show();
+</script></body></html>
